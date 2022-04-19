@@ -36,7 +36,7 @@ pipeline{
         
          stage("sanity test"){
             steps{
-            sh 'mvn test -Dcucumber.filter.tags="@AddPlace"' 
+            sh 'mvn test verify -Dcucumber.filter.tags="@AddPlace"' 
             }
             post {
                 success {
