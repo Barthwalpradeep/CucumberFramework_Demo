@@ -36,8 +36,12 @@ pipeline{
         
          stage("sanity test"){
             steps{
-                echo("sanity test") 
+            sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
         }
         
         stage("regression test"){
@@ -46,11 +50,7 @@ pipeline{
             }
         }
         
-         stage("deploy to prod"){
-            steps{
-                echo("deploy to prod") 
-            }
-        }
+        
         
     }
     
