@@ -36,7 +36,7 @@ pipeline{
         
          stage("sanity test"){
             steps{
-            sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            sh 'mvn test -Dcucumber.filter.tags="@AddPlace"' 
             }
             post {
                 success {
