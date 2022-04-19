@@ -44,11 +44,7 @@ pipeline{
                 }
         }
         
-        stage("regression test"){
-            steps{
-                echo("regression test") 
-            }
-        }
+       }
         
         
         
